@@ -8,7 +8,7 @@ from flask.views import MethodView
 
 
 class AnsibleJeneric(MethodView):
-    @task()
+    #@task()
     def get(self, user_id, project_id, job_id):
 
         # firebase authentication

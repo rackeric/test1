@@ -30,7 +30,7 @@ def create_app():
 
     app.add_url_rule('/', view_func=MainView.as_view('main_view'))
 
-    app.add_url_rule('/api/v1/ansible_jeneric/<string:user_id>/<string:project_id>/<string:job_id>',
+    app.add_url_rule('/api/v1/ansible_jeneric/<user_id>/<project_id>/<job_id>',
                      view_func=AnsibleJeneric.as_view('ansible_jeneric'))
 
 

@@ -9,7 +9,7 @@ from flask.views import MethodView
 
 class AnsibleJeneric(MethodView):
     @task()
-    def get(self, project_id, job_id, user_id):
+    def get(self, user_id, project_id, job_id):
 
         # firebase authentication
         SECRET = os.environ['SECRET']

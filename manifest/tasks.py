@@ -4,12 +4,12 @@ import firebase
 from celery.decorators import task
 from ansible import utils
 import ansible.runner, json, os
-from flask.views import View
+from flask.views import MethodView
 
 
-class AnsibleJeneric(View):
+class AnsibleJeneric(MethodView):
     @task()
-    def dispatch_request(self, project_id, job_id, user_id):
+    def get(self, project_id, job_id, user_id):
 
         # firebase authentication
         SECRET = os.environ['SECRET']

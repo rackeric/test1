@@ -7,6 +7,12 @@ import ansible.runner, json, os
 from flask.views import MethodView
 
 
+# firebase can not use several special characters for key names
+# https://www.firebase.com/docs/creating-references.html
+def sanitize_keys(mydict):
+    return dict((k.replace('.', '_'),sanitize_keys(v) if hasattr(v,'keys') else v) for k,v in mydict.items())
+
+
 class AnsibleJeneric(MethodView):
     #@task()
     def get(self, user_id, project_id, job_id):

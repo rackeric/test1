@@ -34,5 +34,4 @@ def create_app():
                      view_func=AnsibleJeneric.as_view('ansible_jeneric'))
 
 
-    return appstring:
-string:
+    return app

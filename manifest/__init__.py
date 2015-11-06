@@ -2,7 +2,7 @@ from flask import Flask
 from celery import Celery
 from config import config
 from views import MainView
-from tasks import api_ansible_jeneric
+from tasks import AnsibleJeneric
 
 def make_celery(app):
     celery = Celery(app.import_name, broker=app.config['CELERY_BROKER_URL'])
@@ -31,7 +31,7 @@ def create_app():
     app.add_url_rule('/', view_func=MainView.as_view('main_view'))
 
     app.add_url_rule('/api/v1/ansible_jeneric/<string:user_id>/<string:project_id>/<string:job_id>',
-                     view_func=ansible_jeneric.delay().as_view('ansible_jeneric'))
+                     view_func=AnsibleJeneric.as_view('ansible_jeneric'))
 
 
     return app

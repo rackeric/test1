@@ -116,8 +116,7 @@ class AnsibleJeneric(MethodView):
         #
         # HELP! can't get a proper json object to pass, but below string works
         #
-        #myExternalData.post(job_id + '/returns/', sanitize_keys(results))
-        myExternalData.post(job_id + '/returns/', results)
+        myExternalData.post(job_id + '/returns/', sanitize_keys(results))
 
         os.remove('/tmp/' + project_id + '_key')
 

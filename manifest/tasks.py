@@ -111,7 +111,7 @@ class AnsibleJeneric(MethodView):
         myExternalData.patch(job_id, {"status":"COMPLETE"})
 
         # jsonify the results
-        #json_results = ansible.utils.jsonify(results)
+        json_results = ansible.utils.jsonify(results)
 
         #
         # HELP! can't get a proper json object to pass, but below string works
